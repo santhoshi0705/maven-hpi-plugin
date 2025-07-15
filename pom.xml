@@ -13,7 +13,6 @@
   <name>Sample Plugin</name>
   <url>https://www.jenkins.io/</url>
 
-  <!-- Inherit from Jenkins Plugin Parent POM -->
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
@@ -23,7 +22,7 @@
   <properties>
     <java.level>11</java.level>
     <jenkins.version>2.426.1</jenkins.version>
-    <hpi.plugin.version>4.2.2</hpi.plugin.version>
+    <hpi.plugin.version>3.60</hpi.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -48,7 +47,6 @@
       <version>${jenkins.version}</version>
       <scope>provided</scope>
     </dependency>
-    <!-- Add other dependencies here -->
   </dependencies>
 
   <build>
