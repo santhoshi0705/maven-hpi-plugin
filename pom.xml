@@ -17,15 +17,6 @@
     <plugin.firstClassLoader>true</plugin.firstClassLoader>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>local-snapshots</id>
-      <url>file://${user.home}/.m2/repository</url>
-      <releases><enabled>false</enabled></releases>
-      <snapshots><enabled>true</enabled></snapshots>
-    </repository>
-  </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.jenkins-ci.plugins</groupId>
