@@ -1,56 +1,51 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>plugin</artifactId>
-    <version>4.82</version> <!-- Updated parent to latest v4.82 -->
-    <relativePath/>
-  </parent>
-
-  <groupId>org.jenkins-ci.tools</groupId>
-  <artifactId>maven-hpi-plugin</artifactId>
-  <version>1.100-SNAPSHOT</version>
+  <groupId>io.jenkins.plugins</groupId>
+  <artifactId>sample-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
   <packaging>hpi</packaging>
+  <name>Sample Plugin</name>
+  <url>https://www.jenkins.io/</url>
+
+  <properties>
+    <java.level>11</java.level>
+    <jenkins.version>2.426.1</jenkins.version>
+    <hpi.plugin.version>1.100-SNAPSHOT</hpi.plugin.version>
+    <plugin.firstClassLoader>true</plugin.firstClassLoader>
+  </properties>
 
   <repositories>
     <repository>
-      <id>jenkins-releases</id>
-      <url>https://repo.jenkins-ci.org/releases/</url>
-    </repository>
-    <repository>
-      <id>jenkins-public</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
+      <id>local-snapshots</id>
+      <url>file://${user.home}/.m2/repository</url>
+      <releases><enabled>false</enabled></releases>
+      <snapshots><enabled>true</enabled></snapshots>
     </repository>
   </repositories>
 
-  <pluginRepositories>
-    <pluginRepository>
-      <id>jenkins-releases</id>
-      <url>https://repo.jenkins-ci.org/releases/</url>
-    </pluginRepository>
-    <pluginRepository>
-      <id>jenkins-public</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </pluginRepository>
-  </pluginRepositories>
+  <dependencies>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>plugin</artifactId>
+      <version>${jenkins.version}</version>
+      <type>pom</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
   <build>
-    <extensions>
-      <extension>
-        <groupId>org.jenkins-ci.tools</groupId>
-        <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.60</version>
-      </extension>
-    </extensions>
     <plugins>
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.60</version>
+        <version>${hpi.plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <compatibleSinceVersion>1.0</compatibleSinceVersion>
+        </configuration>
       </plugin>
     </plugins>
   </build>
