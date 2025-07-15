@@ -17,13 +17,12 @@
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
-    <version>4.55</version> <!-- Latest stable parent POM version -->
+    <version>4.55</version>
   </parent>
 
   <properties>
     <java.level>11</java.level>
     <jenkins.version>2.426.1</jenkins.version>
-    <!-- Use the plugin maven plugin version from parent or override here -->
     <hpi.plugin.version>4.2.2</hpi.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -35,16 +34,21 @@
     </repository>
   </repositories>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+
   <dependencies>
-    <!-- Jenkins core as provided scope -->
     <dependency>
       <groupId>org.jenkins-ci.main</groupId>
       <artifactId>jenkins-core</artifactId>
       <version>${jenkins.version}</version>
       <scope>provided</scope>
     </dependency>
-
-    <!-- Add any other plugin dependencies here -->
+    <!-- Add other dependencies here -->
   </dependencies>
 
   <build>
@@ -58,8 +62,17 @@
           <compatibleSinceVersion>1.0</compatibleSinceVersion>
         </configuration>
       </plugin>
+
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <source>${java.level}</source>
+          <target>${java.level}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
 </project>
-
