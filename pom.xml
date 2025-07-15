@@ -2,39 +2,49 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>sample-plugin</artifactId>
   <version>1.0-SNAPSHOT</version>
-<!--   <packaging>hpi</packaging> -->
+  <packaging>hpi</packaging>
+
   <name>Sample Plugin</name>
   <url>https://www.jenkins.io/</url>
+
+  <!-- Inherit from Jenkins Plugin Parent POM -->
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <version>4.55</version> <!-- Latest stable parent POM version -->
+  </parent>
 
   <properties>
     <java.level>11</java.level>
     <jenkins.version>2.426.1</jenkins.version>
-    <hpi.plugin.version>3.60</hpi.plugin.version> <!-- changed here -->
-    <plugin.firstClassLoader>true</plugin.firstClassLoader>
+    <!-- Use the plugin maven plugin version from parent or override here -->
+    <hpi.plugin.version>4.2.2</hpi.plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <repositories>
     <repository>
-      <id>central</id>
-      <url>https://repo.maven.apache.org/maven2</url>
-      <releases><enabled>true</enabled></releases>
-      <snapshots><enabled>false</enabled></snapshots>
+      <id>repo.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
 
   <dependencies>
+    <!-- Jenkins core as provided scope -->
     <dependency>
-      <groupId>org.jenkins-ci.plugins</groupId>
-      <artifactId>plugin</artifactId>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-core</artifactId>
       <version>${jenkins.version}</version>
-      <type>pom</type>
       <scope>provided</scope>
     </dependency>
+
+    <!-- Add any other plugin dependencies here -->
   </dependencies>
 
   <build>
@@ -52,3 +62,4 @@
   </build>
 
 </project>
+
