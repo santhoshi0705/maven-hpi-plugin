@@ -4,11 +4,10 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Updated to use a newer, available Jenkins parent POM -->
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.64</version> <!-- Use the latest available -->
+        <version>4.64</version> <!-- Compatible Jenkins plugin parent -->
         <relativePath />
     </parent>
 
@@ -36,12 +35,7 @@
         </developer>
     </developers>
 
-    <scm>
-        <url>https://github.com/jenkinsci/maven-hpi-plugin</url>
-        <connection>scm:git:https://github.com/jenkinsci/maven-hpi-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:jenkinsci/maven-hpi-plugin.git</developerConnection>
-    </scm>
-
+    <!-- Add Jenkins repo for plugin resolution -->
     <repositories>
         <repository>
             <id>jenkins-public</id>
@@ -49,4 +43,20 @@
         </repository>
     </repositories>
 
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.jenkins-ci.tools</groupId>
+                <artifactId>maven-hpi-plugin</artifactId>
+                <version>3.4</version> <!-- Available version in Jenkins repo -->
+            </extension>
+        </extensions>
+        <plugins>
+            <plugin>
+                <groupId>org.jenkins-ci.tools</groupId>
+                <artifactId>maven-hpi-plugin</artifactId>
+                <version>3.4</version>
+            </plugin>
+        </plugins>
+    </build>
 </project>
