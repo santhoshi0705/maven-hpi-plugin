@@ -4,7 +4,6 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <!-- Parent: Jenkins plugin BOM -->
   <parent>
     <groupId>org.jenkins-ci.plugins</groupId>
     <artifactId>plugin</artifactId>
@@ -17,32 +16,34 @@
   <version>1.100-SNAPSHOT</version>
   <packaging>hpi</packaging>
 
-  <name>Maven HPI Plugin</name>
-  <description>Builds Jenkins plugins</description>
-  <url>https://github.com/santhoshi0705/maven-hpi-plugin</url>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.jenkins-ci.tools</groupId>
+        <artifactId>maven-hpi-plugin</artifactId>
+        <version>3.56</version>
+      </extension>
+    </extensions>
+    <plugins>
+      <plugin>
+        <groupId>org.jenkins-ci.tools</groupId>
+        <artifactId>maven-hpi-plugin</artifactId>
+        <version>3.56</version>
+      </plugin>
+    </plugins>
+  </build>
 
-  <licenses>
-    <license>
-      <name>MIT License</name>
-      <url>https://opensource.org/licenses/MIT</url>
-    </license>
-  </licenses>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>jenkins-releases</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>jenkins-public</id>
+      <url>https://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
 
-  <developers>
-    <developer>
-      <id>santhoshi0705</id>
-      <name>Your Name</name>
-      <email>you@example.com</email>
-    </developer>
-  </developers>
-
-  <scm>
-    <connection>scm:git:git://github.com/santhoshi0705/maven-hpi-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/santhoshi0705/maven-hpi-plugin.git</developerConnection>
-    <url>https://github.com/santhoshi0705/maven-hpi-plugin</url>
-  </scm>
-
-  <!-- Repositories -->
   <repositories>
     <repository>
       <id>jenkins-releases</id>
@@ -53,26 +54,4 @@
       <url>https://repo.jenkins-ci.org/public/</url>
     </repository>
   </repositories>
-
-  <build>
-    <!-- Enable HPI packaging -->
-    <extensions>
-      <extension>
-        <groupId>org.jenkins-ci.tools</groupId>
-        <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.56</version>
-      </extension>
-    </extensions>
-
-    <plugins>
-      <plugin>
-        <groupId>org.jenkins-ci.tools</groupId>
-        <artifactId>maven-hpi-plugin</artifactId>
-        <version>3.56</version>
-        <configuration>
-          <!-- Optional: customize HPI plugin behavior here -->
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 </project>
