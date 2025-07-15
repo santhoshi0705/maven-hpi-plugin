@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
@@ -11,6 +11,7 @@
   <packaging>hpi</packaging>
 
   <name>Sample Plugin</name>
+  <url>https://www.jenkins.io/</url>
 
   <properties>
     <java.level>11</java.level>
@@ -18,11 +19,9 @@
     <hpi.plugin.version>3.49</hpi.plugin.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-    <!-- SonarQube properties -->
+    <!-- SonarQube Properties -->
     <sonar.projectKey>sample</sonar.projectKey>
     <sonar.host.url>http://16.171.65.187:9000</sonar.host.url>
-    <!-- Point to the compiled classes for SonarQube analysis -->
-    <sonar.java.binaries>${project.build.directory}/classes</sonar.java.binaries>
   </properties>
 
   <repositories>
@@ -40,34 +39,35 @@
   </pluginRepositories>
 
   <dependencies>
-    <!-- Your existing dependencies -->
+    <dependency>
+      <groupId>org.jenkins-ci.main</groupId>
+      <artifactId>jenkins-core</artifactId>
+      <version>${jenkins.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
-
       <plugin>
         <groupId>org.jenkins-ci.tools</groupId>
         <artifactId>maven-hpi-plugin</artifactId>
         <version>${hpi.plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
-          <jenkinsVersion>${jenkins.version}</jenkinsVersion>
-          <javaLevel>${java.level}</javaLevel>
+          <compatibleSinceVersion>1.0</compatibleSinceVersion>
         </configuration>
       </plugin>
 
-      <!-- Other plugins -->
-
-      <!-- Optionally, add sonar-maven-plugin plugin configuration here if needed -->
-      <!--
       <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>4.0.0.4121</version>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <source>${java.level}</source>
+          <target>${java.level}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
       </plugin>
-      -->
-
     </plugins>
   </build>
 
