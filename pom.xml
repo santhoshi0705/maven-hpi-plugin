@@ -20,12 +20,18 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
-    </repository>
-  </repositories>
+<repositories>
+	<repository>
+		<id>mulesoft-releases</id>
+		<name>MuleSoft Repository</name>
+		<url>http://repository.mulesoft.org/releases/</url>
+		<layout>default</layout>
+	</repository>
+	<repository>
+		<id>repo.jenkins-ci.org</id>
+		<url>https://repo.jenkins-ci.org/public/</url>
+	</repository>
+</repositories>
 
   <pluginRepositories>
     <pluginRepository>
@@ -162,18 +168,6 @@
 	<tag>leapwork-4.0.5</tag>
 </scm>
 
-<repositories>
-	<repository>
-		<id>mulesoft-releases</id>
-		<name>MuleSoft Repository</name>
-		<url>http://repository.mulesoft.org/releases/</url>
-		<layout>default</layout>
-	</repository>
-	<repository>
-		<id>repo.jenkins-ci.org</id>
-		<url>https://repo.jenkins-ci.org/public/</url>
-	</repository>
-</repositories>
 <pluginRepositories>
 	<pluginRepository>
 		<id>repo.jenkins-ci.org</id>
