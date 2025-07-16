@@ -21,24 +21,18 @@
   </properties>
 
 <repositories>
-	<repository>
-		<id>mulesoft-releases</id>
-		<name>MuleSoft Repository</name>
-		<url>http://repository.mulesoft.org/releases/</url>
-		<layout>default</layout>
-	</repository>
-	<repository>
-		<id>repo.jenkins-ci.org</id>
-		<url>https://repo.jenkins-ci.org/public/</url>
-	</repository>
+    <repository>
+        <id>repo.jenkins-ci.org</id>
+        <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
 </repositories>
 
-  <pluginRepositories>
+<pluginRepositories>
     <pluginRepository>
-      <id>repo.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/public/</url>
+        <id>repo.jenkins-ci.org</id>
+        <url>http://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
-  </pluginRepositories>
+</pluginRepositories>
 
   <dependencyManagement>
 	<dependencies>
