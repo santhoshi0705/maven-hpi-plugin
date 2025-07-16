@@ -8,7 +8,7 @@
   <groupId>io.jenkins.plugins</groupId>
   <artifactId>sample-plugin</artifactId>
   <version>1.0-SNAPSHOT</version>
-<!--   <packaging>hpi</packaging> -->
+  <packaging>hpi</packaging>
 
   <name>Sample Plugin</name>
   <url>https://www.jenkins.io/</url>
@@ -54,6 +54,11 @@
 		<groupId>com.github.spotbugs</groupId>
 		<artifactId>spotbugs-annotations</artifactId>
 		<version>4.8.3</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.jenkins-ci.tools</groupId>
+	    <artifactId>maven-hpi-plugin</artifactId>
+	    <version>3.65</version>
 	</dependency>
 	<dependency>
 		<groupId>org.kohsuke</groupId>
